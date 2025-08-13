@@ -2,18 +2,76 @@
 <head>
 <title>Mini Calculator</title>
 <style>
-    * { font-size: 2.5vw; font-family: Latin; text-align: center; }
-    body { background-color: lightblue; }
+    body {
+        background-color: #E0F7FA; /* Soft mint background */
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        background-color: #00BCD4; /* Bright teal */
+        color: white;
+        padding: 15px;
+        border-radius: 20px;
+        width: 60%;
+        margin: 20px auto;
+        font-size: 2em;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    form {
+        background-color: #B2EBF2; /* Lighter teal pastel */
+        padding: 30px;
+        border-radius: 20px;
+        width: 50%;
+        margin: auto;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    input[type=number] {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #00BCD4;
+        border-radius: 8px;
+        font-size: 1.2em;
+        text-align: center;
+        background-color: white;
+    }
+
+    input[type=submit] {
+        background-color: #00BCD4;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px;
+        border-radius: 12px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    input[type=submit]:hover {
+        background-color: #008C9E; /* Slightly darker teal on hover */
+        transform: scale(1.05);
+    }
+
+    h2 {
+        color: #006064; /* Deep teal */
+        margin-top: 20px;
+    }
 </style>
 </head>
 <body>
 <h1>Mini Calculator</h1>
 
 <form onsubmit="find(event)">
-    <input type="number" step="any" id="n1" placeholder="enter first number" />
-    <br/><br/>
-    <input type="number" step="any" id="n2" placeholder="enter second number" />
-    <br/><br/>
+    <input type="number" step="any" id="n1" placeholder="Enter first number" />
+    <br/>
+    <input type="number" step="any" id="n2" placeholder="Enter second number" />
+    <br/>
     <input type="submit" name="op" value="Add"/>
     <input type="submit" name="op" value="Subtract"/>
     <input type="submit" name="op" value="Multiply"/>
