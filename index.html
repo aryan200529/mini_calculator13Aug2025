@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Mini Calculator</title>
+<style>
+    * { font-size: 2.5vw; font-family: Latin; text-align: center; }
+    body { background-color: lightblue; }
+</style>
+</head>
+<body>
+<h1>Mini Calculator</h1>
+
+<form onsubmit="find(event)">
+    <input type="number" step="any" id="n1" placeholder="enter first number" />
+    <br/><br/>
+    <input type="number" step="any" id="n2" placeholder="enter second number" />
+    <br/><br/>
+    <input type="submit" name="op" value="Add"/>
+    <input type="submit" name="op" value="Subtract"/>
+    <input type="submit" name="op" value="Multiply"/>
+    <input type="submit" name="op" value="Divide"/>
+</form>
+
+<h2 id="msg"></h2>
+
+<script>
+function find(event) {
+    event.preventDefault();
+
+    let n1 = document.getElementById("n1");
+    let n2 = document.getElementById("n2");
+    let msg = document.getElementById("msg");
+
+    if (n1.value === "") {
+        alert("Please enter first number");
+        n1.focus();
+        msg.innerHTML = "";
+        return;
+    }
+
+    if (n2.value === "") {
+        alert("Please enter second number");
+        n2.focus();
+        msg.innerHTML = "";
+        return;
+    }
+
+    let num1 = parseFloat(n1.value);
+    let num2 = parseFloat(n2.value);
+
+    let operation = event.submitter.value;
+    let result;
+    let text;
+
+    if (operation === "Add") {
+        result = num1 + num2;
+        text = `Sum is ${result}`;
+    } 
+    else if (operation === "Subtract") {
+        result = num1 - num2;
+        text = `Difference is ${result}`;
+    } 
+    else if (operation === "Multiply") {
+        result = num1 * num2;
+        text = `Product is ${result}`;
+    } 
+    else if (operation === "Divide") {
+        if (num2 === 0) {
+            alert("Cannot divide by zero!");
+            return;
+        }
+        result = num1 / num2;
+        text = `Quotient is ${result}`;
+    }
+
+    msg.innerHTML = text;
+}
+</script>
+</body>
+</html>
